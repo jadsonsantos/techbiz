@@ -1,34 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.scss'
+import { useEffect, useState } from 'react'
+import { fetchInfoUser } from './services'
+import { UserInfos } from './types'
+import AddressSection from './sections/Address'
+import './styles/structure.scss'
+import PhoneSection from './sections/Phone'
+import EmailSection from './sections/Email'
+import Company from './sections/Company'
+import Person from './sections/Person'
+import SectionWrapper from './components/SectionWrapper'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [infoUser, setInfoUser] = useState<UserInfos | null>(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchInfoUser()
+        setInfoUser(data[0])
+      } catch (error) {
+        console.error('Error fetching user info:', error)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main>
+      {infoUser && (
+        <div className="container">
+          <h2>Emails</h2>
+          <SectionWrapper>
+            {infoUser?.email?.map((email) => (
+              <EmailSection key={email['email address']} email={email} />
+            ))}
+          </SectionWrapper>
+          <h2>Endereços</h2>
+          <SectionWrapper>
+            {infoUser.endereco.map((endereco) => (
+              <AddressSection key={endereco.logradouro} endereco={endereco} />
+            ))}
+          </SectionWrapper>
+          <h2>Telefones</h2>
+          <SectionWrapper>
+            {infoUser?.telefone?.map((telefone) => (
+              <PhoneSection
+                key={telefone['phone number']}
+                telefone={telefone}
+              />
+            ))}
+          </SectionWrapper>
+          <h2>Empresas</h2>
+          <SectionWrapper>
+            {infoUser?.empresa?.map((empresa) => (
+              <Company key={empresa['razao social']} empresa={empresa} />
+            ))}
+          </SectionWrapper>
+          <h2>Pessoas</h2>
+          <SectionWrapper>
+            {infoUser?.pessoa?.map((pessoa) => (
+              <Person key={pessoa.cpf} pessoa={pessoa} />
+            ))}
+          </SectionWrapper>
+        </div>
+      )}
+    </main>
   )
 }
 
