@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import { fetchInfoUser } from './services'
 import { UserInfos } from './types'
 import AddressSection from './sections/Address'
-import './styles/structure.scss'
 import PhoneSection from './sections/Phone'
 import EmailSection from './sections/Email'
 import Company from './sections/Company'
 import Person from './sections/Person'
 import SectionWrapper from './components/SectionWrapper'
+import './styles/index.scss'
 
 function App() {
   const [infoUser, setInfoUser] = useState<UserInfos | null>(null)
@@ -59,7 +59,7 @@ function App() {
           <h2>Pessoas</h2>
           <SectionWrapper>
             {infoUser?.pessoa?.map((pessoa) => (
-              <Person key={pessoa.cpf} pessoa={pessoa} />
+              <Person key={pessoa['first names']} pessoa={pessoa} />
             ))}
           </SectionWrapper>
         </div>
