@@ -1,0 +1,11 @@
+@use '../../styles/variables.scss' as *;
+
+.box {
+  border-radius: $border-radius;
+  background-color: $gray;
+  padding: 40px;
+}
+
+.user-dashboard {
+  margin: 0 0 40px;
+}

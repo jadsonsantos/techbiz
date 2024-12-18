@@ -1,0 +1,7 @@
+@use '../../styles/variables.scss' as *;
+
+.box {
+  border-radius: $border-radius;
+  background-color: $gray;
+  padding: 20px;
+}
