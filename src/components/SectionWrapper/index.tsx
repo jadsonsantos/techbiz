@@ -1,7 +1,14 @@
 import './SectionWrapper.scss'
 
-const SectionWrapper = ({ children }: { children: React.ReactNode }) => {
-  return <section className="section-wrapper">{children}</section>
+interface SectionWrapperProps {
+  className?: string
+  children: React.ReactNode
+}
+
+const SectionWrapper = ({ children, className }: SectionWrapperProps) => {
+  return (
+    <section className={`section-wrapper ${className}`}>{children}</section>
+  )
 }
 
 export default SectionWrapper

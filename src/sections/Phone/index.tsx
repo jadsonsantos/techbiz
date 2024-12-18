@@ -1,4 +1,5 @@
 import { Telefone } from '../../types'
+import { formatPhone } from '../../utils'
 
 interface TelefoneProps {
   telefone: Telefone
@@ -7,9 +8,11 @@ interface TelefoneProps {
 const PhoneSection = ({ telefone }: TelefoneProps) => {
   return (
     <article className="phone">
-      <p>Telefone: {telefone['phone number']}</p>
-      {telefone.operadora && <p>Operadora: {telefone.operadora}</p>}
-      {telefone.whatsapp && <p>Possui Whatsapp</p>}
+      <p className="text">Telefone: {formatPhone(telefone['phone number'])}</p>
+      {telefone.operadora && (
+        <p className="text">Operadora: {telefone.operadora}</p>
+      )}
+      {telefone.whatsapp && <p className="text">Possui Whatsapp</p>}
     </article>
   )
 }

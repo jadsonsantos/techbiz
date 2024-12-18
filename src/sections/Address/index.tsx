@@ -7,12 +7,14 @@ interface AddressProps {
 const AddressSection = ({ endereco }: AddressProps) => {
   return (
     <article className="address">
-      <p>
+      <p className="text">
         {endereco.logradouro ? endereco.logradouro + ', ' : ''}
         {endereco.bairro}
       </p>
-      {endereco['area code'] && <p>CEP: {endereco['area code']}</p>}
-      <p>
+      {endereco['area code'] && (
+        <p className="text">CEP: {endereco['area code']}</p>
+      )}
+      <p className="text">
         {endereco.city} - {endereco.area}
       </p>
     </article>
