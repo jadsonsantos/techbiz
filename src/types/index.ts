@@ -49,13 +49,16 @@ export interface Pessoa {
   ctps?: string
   profissao?: string
   escolaridade?: string
+  estado_nascimento?: string
   'estado nascimento'?: string
+  cidade_nascimento?: string
   idade?: string
   indentidade?: string
   nacionalidade?: string
-  'pais nascimento'?: string
+  pais_nascimento?: string
   'pis/pasep'?: string
   'status receita'?: string
+  empresa?: string
 }
 
 export interface Location {
