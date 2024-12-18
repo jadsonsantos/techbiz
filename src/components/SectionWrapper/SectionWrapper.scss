@@ -1,16 +1,15 @@
 .section-wrapper {
   display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-template-columns: repeat(1, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px 0;
 
-  &--person {
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
-    padding: 0;
-  }
-
   &:not(:last-child) {
     border-bottom: 1px solid #F0F0F0;
+  }
+
+  &--person {
+    padding: 0;
   }
 
   h2 {
@@ -19,5 +18,13 @@
 
   p {
     margin: 0 0 5px;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+
+    &--person {
+      grid-template-columns: repeat(2, minmax(200px, 1fr));
+    }
   }
 }
