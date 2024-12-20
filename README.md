@@ -58,6 +58,8 @@ npm install
 - Vite
 - Sass
 - JSON Server
+- ESLint
+- Prettier
 
 ## Links da aplicação
 
