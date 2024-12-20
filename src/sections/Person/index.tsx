@@ -1,3 +1,4 @@
+import { Gender } from '../../enums'
 import { Endereco, Pessoa } from '../../types'
 import { formatCPF } from '../../utils'
 import AddressSection from '../Address'
@@ -10,6 +11,7 @@ interface PersonProps {
 const Person = ({ pessoa }: PersonProps) => {
   return (
     <article className="person box">
+      <h3 className="subtitle">Dados Pessoais</h3>
       <p className="text">
         Nome: {pessoa['first names']} {pessoa.surname}
       </p>
@@ -29,7 +31,7 @@ const Person = ({ pessoa }: PersonProps) => {
         <p className="text">Pais de Nascimento: {pessoa['pais_nascimento']}</p>
       )}
       {pessoa.idade && <p className="text">Idade: {pessoa.idade}</p>}
-      {pessoa.sexo && <p className="text">Sexo: {pessoa.sexo}</p>}
+      {pessoa.sexo && <p className="text">Sexo: {Gender(pessoa.sexo)}</p>}
       {pessoa.vinculo && <p className="text">Vinculo: {pessoa.vinculo}</p>}
       {pessoa.escolaridade && (
         <p className="text">Escolaridade: {pessoa.escolaridade}</p>

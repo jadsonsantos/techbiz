@@ -1,5 +1,6 @@
 import SectionWrapper from '../../components/SectionWrapper'
 import SingleInfo from '../../components/SingleInfo'
+import { Gender } from '../../enums'
 import { UserInfos } from '../../types'
 import { formatCNPJ, formatCPF, formatPhone } from '../../utils'
 import './UserDashboard.scss'
@@ -27,7 +28,9 @@ const UserDashboard = ({ infoUser }: UserDashboardProps) => {
           text={person.nacionalidade ?? ''}
         />
         <SingleInfo subtitle="Idade: " text={person.idade ?? ''} />
-        <SingleInfo subtitle="Sexo: " text={person.sexo ?? ''} />
+        {person.sexo && (
+          <SingleInfo subtitle="Sexo: " text={Gender(person.sexo)} />
+        )}
       </SectionWrapper>
       <SectionWrapper>
         <SingleInfo subtitle="Profissão: " text={person.profissao ?? ''} />
