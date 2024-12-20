@@ -1,50 +1,38 @@
 # Teste Técnico - Desenvolvedor Front End | TechBiz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o repositório do projeto front-end para processo seletivo, utilizando TypeScript, React, Vite, Sass e JSON Server para consumo da API.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- Consumir dados da API através do JSON Server
+- Utilização de componentes React com TypeScript
+- Estilização com Sass
+- Estruturação do código de maneira organizada e modular
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Como executar
+- Clone este repositório
+- Instale as dependências usando uma versão do node >=18
+```terminal
+npm install
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+- Execute o projeto:
+```terminal
+ npm run dev
 ```
+- O aplicativo estará disponível em http://localhost:5173/
+
+
+## Tecnologias utilizadas
+
+- TypeScript
+- React
+- Vite
+- Sass
+- JSON Server
+
+## Links da aplicação
+
+- Front End: https://techbiz-nine.vercel.app/
+- Repositório do JSON Server: https://github.com/jadsonsantos/techbiz-api
+- Aplicação do JSON Server: https://techbiz-api.vercel.app/SNAP
