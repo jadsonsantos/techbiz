@@ -9,6 +9,7 @@ Este é o repositório do projeto front-end para processo seletivo, utilizando T
 - Utilização de componentes React com TypeScript
 - Estilização com Sass
 - Estruturação do código de maneira organizada e modular
+- O projeto utiliza ESLint e Prettier para garantir o código limpo e consistente. As configurações estão localizadas nos arquivos .eslintrc.config.js e .prettierrc.
 
 ## Como executar
 - Clone este repositório
@@ -22,6 +23,33 @@ npm install
 ```
 - O aplicativo estará disponível em http://localhost:5173/
 
+## Estrutura do projeto
+
+```terminal
+├── public/
+│   └──
+├── src/
+│   ├── assets/
+│   │   └── ...
+│   ├── components/
+│   │   └── ...
+│   ├── types/
+│   │   └── index.ts
+│   ├── utils/
+│   │   └── index.ts
+│   ├── enums/
+│   │   └── index.ts
+│   ├── services/
+│   │   └── index.ts
+│   ├── App.tsx
+│   └── styles/
+│       └──
+├── .gitignore
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+
+```
 
 ## Tecnologias utilizadas
 
