@@ -7,7 +7,7 @@ const SingleInfo = ({ subtitle, text }: SingleInfoProps) => {
   if (!text) return null
 
   return (
-    <div>
+    <div className="single-info">
       <p className="subtitle">{subtitle}</p>
       <p className="text">{text || 'Não informado'}</p>
     </div>
