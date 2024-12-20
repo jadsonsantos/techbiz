@@ -29,9 +29,11 @@ function App() {
           <UserDashboard infoUser={infoUser} />
           <h2 className="title">Vínculos</h2>
           <SectionWrapper className="section-wrapper--person">
-            {infoUser?.pessoa?.map((pessoa) => (
-              <Person key={pessoa['first names']} pessoa={pessoa} />
-            ))}
+            {infoUser?.pessoa
+              ?.filter((pessoa) => pessoa.bookmark !== 'true')
+              .map((pessoa) => (
+                <Person key={pessoa['first names']} pessoa={pessoa} />
+              ))}
           </SectionWrapper>
         </div>
       )}
